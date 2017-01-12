@@ -1,4 +1,5 @@
 # angular-pokedex
+<<<<<<< HEAD
 A single page application that uses AngularJS and NodeJS to display a Pokedex which consists of different Pokemons!
 
 # Dev requirements
@@ -12,3 +13,6 @@ A single page application that uses AngularJS and NodeJS to display a Pokedex wh
 4.) bower install (this will install all bower dependencies) <br>
 5.) npm install (this will install all npm dependencies) <br>
 
+=======
+Pokedex powered by AngularJS
+>>>>>>> 2f157774cb989b350bd019ef72e03e1115e29b0c
