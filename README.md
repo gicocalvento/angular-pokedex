@@ -37,7 +37,8 @@ Our application goal is to create a mock Pokedex where to display different Poke
 
   - Scroll down to view all pokemons in list view
   - Click the cards to view the details of the pokemon to see its status
-  - You can use the filters and search bar to search the pokemon you want.
+  - You can use the filters and search bar to search the pokemon you want
+  - Note you after typing the search term press enter or click the search icon then click the X icon to clear the filter
   - You can hover over the Skills/Moves part to see the Skill Information
   
  Here is our screencap of our application
