@@ -9,6 +9,7 @@ A single page application that uses AngularJS and NodeJS to display a Pokedex wh
 - install grunt-cli using `npm install grunt-cli -g`
 
 # Setting up our environment
+
 1.) Clone the repository - https://github.com/shadowcat08/angular-pokedex.git <br>
 2.) `cd angular-pokedex` <br>
 3.) Make sure that bower and npm is installed on your dev since we used a Yeoman Generator (visit http://yeoman.io/ for more info) <br> 
@@ -37,8 +38,11 @@ Our application goal is to create a mock Pokedex where to display different Poke
   - Click the cards to view the details of the pokemon to see its status
   - You can use the filters and search bar to search the pokemon you want.
   - You can hover over the Skills/Moves part to see the Skill Information
-
-
+  
+ Here is our screencap of our application
+ 
+ ![alt tag](https://github.com/shadowcat08/angular-pokedex/blob/master/app/images/snip.PNG)
+ 
 # Testing
 
 Running `grunt test` will run the unit tests with karma.
