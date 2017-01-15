@@ -37,7 +37,7 @@
                 <span ng-repeat="type in pokemon.enameType" class="label pull-right" ng-class="type" style="margin-left:5px;">{{type}}</span>
               </div>
               <center>
-                <img class="list-img animated fadeIn" ng-src="http://localhost:4730/pokemons/thm/{{pokemon.id}}" alt="{{ pokemon.ename }}"> <br>
+                <img class="list-img animated fadeIn" ng-src="http://localhost:9001/pokemons/thm/{{pokemon.id}}" alt="{{ pokemon.ename }}"> <br>
                 <div class="list-name animated fadeIn">{{pokemon.ename}}</div> 
               </center>
             </div>
@@ -57,7 +57,7 @@
             <div class="row">
               <div class="col-md-6">
                 <center>
-                  <img class="img-img animated fadeIn" ng-src="http://localhost:4730/pokemons/img/{{ vm.detailedPokemon.id }}">
+                  <img class="img-img animated fadeIn" ng-src="http://localhost:9001/pokemons/img/{{ vm.detailedPokemon.id }}">
                 </center>
               </div>
               <div class="col-md-6">
@@ -70,7 +70,7 @@
                     </div>
                     <div class="col-md-5">
                       <!-- <center> -->
-                        <img class="img-spr animated fadeIn pull-right" ng-src="http://localhost:4730/pokemons/spr/{{ vm.detailedPokemon.id }}"> 
+                        <img class="img-spr animated fadeIn pull-right" ng-src="http://localhost:9001/pokemons/spr/{{ vm.detailedPokemon.id }}"> 
                       <!-- </center> -->
                     </div>
                 </div>
