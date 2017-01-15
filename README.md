@@ -9,6 +9,7 @@ A single page application that uses AngularJS and NodeJS to display a Pokedex wh
 - install grunt-cli using `npm install grunt-cli -g`
 
 # Setting up our environment
+
 1.) Clone the repository - https://github.com/shadowcat08/angular-pokedex.git <br>
 2.) `cd angular-pokedex` <br>
 3.) Make sure that bower and npm is installed on your dev since we used a Yeoman Generator (visit http://yeoman.io/ for more info) <br> 
@@ -18,13 +19,14 @@ A single page application that uses AngularJS and NodeJS to display a Pokedex wh
 # Running our server
 
 Our server runs on NodeJS using ExpressJS and this will serve as our backend and provide the application data <br>
-Simply open another terminal and run this command and a message will appear running our serve on port 9001
+Simply open another terminal and on our app root (angular-pokedex) <br>
+run this command and a message will appear running our serve on port 9001
 ```
  node server.js
 ```
 # Starting our application
 
-The application uses Grunt ( a javascript build tool ) which will serve our application on port 9000
+The application uses Grunt ( a javascript build tool ) which will serve our application on port 9000 <br>
 Make sure that the grunt-cli is installed then run this command on another terminal
 ```
   grunt serve
@@ -35,13 +37,22 @@ Our application goal is to create a mock Pokedex where to display different Poke
 
   - Scroll down to view all pokemons in list view
   - Click the cards to view the details of the pokemon to see its status
-  - You can use the filters and search bar to search the pokemon you want.
+  - You can use the filters and search bar to search the pokemon you want
+  - Note you after typing the search term press enter or click the search icon then click the X icon to clear the filter
   - You can hover over the Skills/Moves part to see the Skill Information
-
-
+  
+ Here is our screencap of our application
+ 
+ ![alt tag](https://github.com/shadowcat08/angular-pokedex/blob/master/app/images/snip.PNG)
+ 
 # Testing
 
 Running `grunt test` will run the unit tests with karma.
+
+# Notes
+
+- The application works well with Chrome and Mozilla
+- The responsive UI is not yet completed will work on it on the next release
 
 # Changelog 
 
