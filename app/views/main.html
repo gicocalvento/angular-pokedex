@@ -1,23 +1,144 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+<div class="row">
+
+    <div class="col-md-6 list-col">
+    <div class="row">    
+        <div class="col-xs-8 col-xs-offset-2">
+        <form ng-submit="vm.applyFilter()">
+        <div class="input-group">
+                <div class="input-group-btn search-panel">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                      <span id="search_concept">Filter by</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a ng-click="vm.setOrderBy('ename')">Name</a></li>
+                      <li><a ng-click="vm.setOrderBy('id')">ID</a></li>
+                      <li><a ng-click="vm.setOrderBy('id')">Type</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#all">ASC</a></li>
+                      <li><a href="#all">DESC</a></li>
+                    </ul>
+                </div>
+                <input type="hidden" name="search_param" value="all" id="search_param">         
+                <input type="text" class="form-control" name="x" placeholder="Search term..." ng-model="vm.searchTerm">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" ng-click="vm.applyFilter()" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                    <button class="btn btn-default" ng-click="vm.clearFilter()" type="button"><span class="glyphicon glyphicon-remove"></span></button>
+                </span>
+            </div>
+          </form>
+        </div>
+  </div>
+  <br>
+      <div id="list-div">
+          <div ng-repeat="pokemon in vm.allPokemons | filter: vm.searched | orderBy : vm.orderValue track by $index" class="col-xs-4 list-card-row">
+            <div ng-click="vm.selectPokemon(pokemon)" class="list-card animated fadeIn">
+              <div class="list-type">
+                <span class="badge">#{{pokemon.id}}</span>
+                <span ng-repeat="type in pokemon.enameType" class="label pull-right" ng-class="type" style="margin-left:5px;">{{type}}</span>
+              </div>
+              <center>
+                <img class="list-img animated fadeIn" ng-src="http://localhost:4730/pokemons/thm/{{pokemon.id}}" alt="{{ pokemon.ename }}"> <br>
+                <div class="list-name animated fadeIn">{{pokemon.ename}}</div> 
+              </center>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="list-detail">
+            <div class="row">
+              <div class="col-md-12">
+                <center>
+                    <h2 class="animated fadeIn">{{ vm.detailedPokemon.ename }}</h2>
+                </center>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <center>
+                  <img class="img-img animated fadeIn" ng-src="http://localhost:4730/pokemons/img/{{ vm.detailedPokemon.id }}">
+                </center>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-7">
+                      <div class="detail-cover">
+                        <span style="font-size:18px;">ID :</span> <span class="badge" style="margin-left: 5px; margin-bottom:5px;">#{{vm.detailedPokemon.id}}</span><br>
+                        <span style="font-size:18px;">Type :</span> <span ng-repeat="type in vm.detailedPokemon.enameType" class="label label-sm" ng-class="type" style="margin-left:5px;">{{type}}</span>
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                      <!-- <center> -->
+                        <img class="img-spr animated fadeIn pull-right" ng-src="http://localhost:4730/pokemons/spr/{{ vm.detailedPokemon.id }}"> 
+                      <!-- </center> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="stat-header">Attack : </span>
+                        <span class="stat-header">Defense : </span>
+                        <span class="stat-header">HP : </span>
+                        <span class="stat-header">Sp.Atk : </span>
+                        <span class="stat-header">Sp.Def : </span>
+                        <span class="stat-header">Speed : </span>
+                    </div>
+                    <div class="col-md-2">
+                        <span class="stat-value"> {{ vm.detailedPokemon.base.Attack }}</span> 
+                        <span class="stat-value"> {{ vm.detailedPokemon.base.Defense }}</span>
+                        <span class="stat-value"> {{ vm.detailedPokemon.base.HP }}</span>
+                        <span class="stat-value"> {{ vm.detailedPokemon.base['Sp.Atk'] }}</span>
+                        <span class="stat-value"> {{ vm.detailedPokemon.base['Sp.Def'] }}</span>
+                        <span class="stat-value"> {{ vm.detailedPokemon.base.Speed }}</span>
+                    </div>
+                </div>
+                  <!-- <div class="stat-bar">
+                      <span class="stat-header">Attack : </span>
+                      <span class="stat-value"> {{ vm.detailedPokemon.base.Attack }}</span>
+                  </div>
+                  <div class="stat-bar">
+                      <span class="stat-header">Defense : </span>
+                      <span class="stat-value"> {{ vm.detailedPokemon.base.Defense }}</span>
+                  </div>
+                  <div class="stat-bar">
+                      <span class="stat-header">HP : </span>
+                      <span class="stat-value"> {{ vm.detailedPokemon.base.HP }}</span>
+                  </div>
+                  <div class="stat-bar">
+                      <span class="stat-header">Sp.Atk : </span>
+                      <span class="stat-value"> {{ vm.detailedPokemon.base.Sp.Atk }}</span>
+                  </div>
+                  <div class="stat-bar">
+                      <span class="stat-header">Sp.Def : </span>
+                      <span class="stat-value"> {{ vm.detailedPokemon.base.Sp.Def }}</span>
+                  </div>
+                  <div class="stat-bar">
+                      <span class="stat-header">Speed : </span>
+                      <span class="stat-value"> {{ vm.detailedPokemon.base.Speed }}</span>
+                  </div> -->
+              </div>
+            </div>
+            <br>
+            <div class="row">
+                <center>
+                  <div class="well well-sm">
+                    <span class="skill-header">Skills / Moves</span>
+                  </div>
+                </center>
+            </div>
+            <div class="row">
+                <div class="skill-div">
+                  <div ng-repeat="skills in vm.selectedPokemonSkills" class="col-xs-4 skill-label"> {{ skills.ename }} </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>
+<script type="text/javascript">
+   $('#list-div').slimScroll({
+      size: '0px',
+      height : 'auto'
+  });
+</script>

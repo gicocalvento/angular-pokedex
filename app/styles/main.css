@@ -1,8 +1,11 @@
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+@import 'https://fonts.googleapis.com/css?family=Roboto:300';
+
+body { 
+  background: url(../images/bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 body {
@@ -19,8 +22,7 @@ body {
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
@@ -34,7 +36,6 @@ body {
 .footer {
   padding-top: 19px;
   color: #777;
-  border-top: 1px solid #e5e5e5;
 }
 
 .container-narrow > hr {
@@ -61,9 +62,9 @@ body {
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  .container {
+  /*.container {
     max-width: 730px;
-  }
+  }*/
 
   /* Remove the padding we set earlier */
   .header,
@@ -81,3 +82,222 @@ body {
     border-bottom: 0;
   }
 }
+
+/* navbar styles */
+@media (min-width: 768px) {
+
+  .navbar {
+      border-radius: 0px;
+  }
+
+}
+
+.navbar-default {
+     background-color: transparent; 
+     border: none;
+}
+
+.list-card {
+  cursor: pointer; cursor: hand;
+  font-family: 'Roboto', sans-serif;
+  color:white;
+  border-radius: 3px;
+  background-color: rgba(0,0,0,0.8);
+  padding: 20px;
+  width: 180;
+  height: 170px;
+  overflow:hidden;
+}
+
+.list-card:hover {
+  /*background: #e1e1e1;*/
+  border: 2px solid white;
+}
+
+.list-card img {
+  width:75px;
+}
+
+.list-card-row {
+  padding-bottom: 20px;
+}
+
+.list-col {
+  height:570px;
+}
+
+.img-spr {
+  width: 100px;
+  /*margin-left: -20px;*/
+}
+
+.img-img {
+  width: 250px;
+  margin-top: 35px;
+}
+
+.list-detail {
+  font-family: 'Roboto', sans-serif;
+  background-color: rgba(0,0,0,0.8);
+  border-radius: 2px;
+  width: 98%;
+  padding: 0px 20px 0px 20px;
+  min-height: 620px;
+  color:white;
+}
+
+.card-footer {
+  color: white;
+  width:100%;
+  border-top: 1px solid white;
+}
+
+.list-type {
+  margin-bottom:12px;
+}
+
+.list-name {
+  font-size:16px;
+  padding-top:1px;
+
+}
+
+.detail-cover {
+  margin-top:33px;
+}
+
+.list-img {
+  margin-bottom:5px;
+}
+
+.Poison {
+  background-color: #A55B9D;
+}
+
+.Grass {
+  background-color: #8BD550;
+}
+
+.Normal {
+  background-color: #B3B5A7;
+}
+
+.Fighting {
+  background-color: #A55243;
+}
+
+.Fire {
+  background-color: #F35840;
+}
+
+.Water {
+  background-color: #55ADFD;
+}
+
+.Flying {
+  background-color: #76A7FB;
+}
+
+.Poison {
+  background-color: #A15494;
+}
+
+.Ground {
+  background-color: #F5D780;
+}
+
+.Rock {
+  background-color: #CDBB72;
+}
+
+.Bug {
+  background-color: #C3D020;
+}
+
+.Ghost {
+  background-color: #817CE1;
+}
+
+.Electric {
+  background-color: #FFEC36;
+}
+
+.Psychic {
+  background-color: #F763AF;
+}
+
+.Ice {
+  background-color: #ABF6F9;
+}
+
+.Dragon {
+  background-color: #8D77FC;
+}
+
+.Dark {
+  background-color: #83624F;
+}
+
+.Steel {
+  background-color: #C5C2DC;
+}
+
+.Fairy {
+  background-color: #F8ADFE;
+}
+
+.badge {
+  background-color: #79a7f2;
+}
+
+.pokemon-stat {
+  float:right;
+}
+
+.progress {
+  position: relative;
+  height: 25px;
+  margin-bottom:5px;
+}
+.progress > .progress-type {
+  position: absolute;
+  left: 0px;
+  font-weight: 800;
+  padding: 3px 30px 2px 10px;
+  color: rgb(255, 255, 255);
+  background-color: rgba(25, 25, 25, 0.2);
+}
+.progress > .progress-completed {
+  position: absolute;
+  right: 0px;
+  font-weight: 800;
+  padding: 3px 10px 2px;
+  color:black;
+}
+
+.well {
+  width: 96%;
+  background-color:#337ab7;
+  border:none;
+  color:white;
+}
+
+.skill-header {
+  font-size: 18px;
+  /*font-weight: bold;*/
+}
+
+.skill-div {
+  width: 100%;
+}
+
+.stat-header {
+  font-size: 22px;
+  font-weight:normal;
+}
+
+.stat-value {
+  font-size: 22px;
+  font-weight:normal;
+}
+
