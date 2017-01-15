@@ -19,13 +19,14 @@ A single page application that uses AngularJS and NodeJS to display a Pokedex wh
 # Running our server
 
 Our server runs on NodeJS using ExpressJS and this will serve as our backend and provide the application data <br>
-Simply open another terminal and run this command and a message will appear running our serve on port 9001
+Simply open another terminal and on our app root (angular-pokedex) <br>
+run this command and a message will appear running our serve on port 9001
 ```
  node server.js
 ```
 # Starting our application
 
-The application uses Grunt ( a javascript build tool ) which will serve our application on port 9000
+The application uses Grunt ( a javascript build tool ) which will serve our application on port 9000 <br>
 Make sure that the grunt-cli is installed then run this command on another terminal
 ```
   grunt serve
@@ -46,6 +47,11 @@ Our application goal is to create a mock Pokedex where to display different Poke
 # Testing
 
 Running `grunt test` will run the unit tests with karma.
+
+# Notes
+
+- The application works well with Chrome and Mozilla
+- The responsive UI is not yet completed will work on it on the next release
 
 # Changelog 
 
