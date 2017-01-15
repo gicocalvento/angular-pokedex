@@ -1,3 +1,8 @@
+/**
+ * This file will serve as our backend which handes GET request to act as an API
+ * It is built using NodeJS and ExpressJS
+ * It fetches data from the /data folder
+ */
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
@@ -17,30 +22,45 @@ app.all('*', function(req, res, next) {
     } 
 }); 
 
-//==========RESTFUL APIs============//
 
-//get all pokemon
+/*
+* @api /pokemons
+* @method GET
+* @returns Object data
+*/
 app.get('/pokemons', function (req, res) {
    fs.readFile( __dirname + "/" + "data/pokedex.json", 'utf8', function (err, data) {
        res.end( data );
    });
 });
 
-//get all skills
+/*
+* @api /skills
+* @method GET
+* @returns Object data
+*/
 app.get('/skills', function (req, res) {
     fs.readFile( __dirname + "/" + "data/skills.json", 'utf8', function (err, data) {
         res.end( data );
     });
 });
 
-//get all types
+/*
+* @api /types
+* @method GET
+* @returns Object data
+*/
 app.get('/types', function (req, res) {
    fs.readFile( __dirname + "/" + "data/types.json", 'utf8', function (err, data) {
        res.end( data );
    });
 });
 
-//get specific pokemon thm
+/*
+* @api /pokemons/thm/:id
+* @method GET
+* @returns Object data
+*/
 app.get('/pokemons/thm/:id', function (req, res) {
     var fileName = '';
     var hasFile = false;
@@ -61,7 +81,11 @@ app.get('/pokemons/thm/:id', function (req, res) {
    });
 });
 
-//get specific pokemon image
+/*
+* @api /pokemons/img/:id
+* @method GET
+* @returns Object res
+*/
 app.get('/pokemons/img/:id', function (req, res) {
     var fileName = '';
     var hasFile = false;
@@ -82,7 +106,11 @@ app.get('/pokemons/img/:id', function (req, res) {
    });
 });
 
-//get specific pokemon spr
+/*
+* @api /pokemons/spr/:id
+* @method GET
+* @returns Object data
+*/
 app.get('/pokemons/spr/:id', function (req, res) {
     var fileName = '';
     var hasFile = false;
@@ -103,12 +131,16 @@ app.get('/pokemons/spr/:id', function (req, res) {
    });
 });
 
-//get specific pokemon spr
+/*
+* @api /pokemons/list/
+* @method GET
+* @returns Object data
+*/
 app.get('/pokemons/list/', function (req, res) {
     var pokemons = [];
     fs.readFile( __dirname + "/" + "data/pokedex.json", 'utf8', function (err, data) {
        pokemons = data; 
-       console.log(pokemons);
+       res.send(data);
    });
 });
 

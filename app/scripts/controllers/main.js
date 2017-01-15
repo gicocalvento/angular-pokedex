@@ -14,7 +14,8 @@ angular.module('angularPokedexApp').controller('MainCtrl', MainCtrl);
     MainCtrl.$inject = ['Pokemon'];
 
     function MainCtrl(Pokemon) {
-       
+        
+        // vars and functions declarations
         var vm = this;
         vm.init = init;
         vm.allPokemons = [];
@@ -29,9 +30,30 @@ angular.module('angularPokedexApp').controller('MainCtrl', MainCtrl);
         vm.setOrderBy = setOrderBy; 
         vm.clearFilter = clearFilter;
         vm.applyFilter = applyFilter;
+        vm.showLogo = true;
+        vm.showSkils = false;
+        vm.detailedPokemon = {
+            ename: '???????',
+            enameType: '??',
+            base: {
+                Attack: '??',
+                Defense: '??',
+                HP: '??',
+                'Sp.Atk': '??',
+                'Sp.Def': '??',
+                Speed: '??'
+            }
+        };
 
         init();
 
+
+        /**
+        * @name init
+        * @description init function to set variables
+        * @returns 
+        * @version 1.0.2
+        */
         function init(){
 
             Pokemon.query().$promise.then(function(res){
@@ -55,6 +77,12 @@ angular.module('angularPokedexApp').controller('MainCtrl', MainCtrl);
 
         }
 
+        /**
+        * @name fetchPokemonTypes
+        * @description fetch different pokemon types then assign it to the pokemon
+        * @returns 
+        * @version 1.0.4
+        */
         function fetchPokemonTypes() {
             var allPokemons = vm.allPokemons.length;
             var allPokemonTypes = vm.pokemonTypes.length;
@@ -74,13 +102,27 @@ angular.module('angularPokedexApp').controller('MainCtrl', MainCtrl);
 
         }
 
+        /**
+        * @name selectPokemon
+        * @description runs when the user clicks a pokemon card and assign to a var
+        * @returns 
+        * @version 1.0.4
+        */
         function selectPokemon(pokemon){
+            vm.showSkills = true;
+            vm.showLogo = false;
             vm.detailedPokemon = {};
             vm.detailedPokemon = pokemon;
             console.log(vm.detailedPokemon);
             vm.fetchPokemonSkills();
         }
 
+        /**
+        * @name fetchPokemonSkills
+        * @description fetch all pokemon skills and attach it to the object
+        * @returns 
+        * @version 1.0.3
+        */
         function fetchPokemonSkills(){
             var skills = {};
             var currentSkillsId = [];
@@ -100,6 +142,13 @@ angular.module('angularPokedexApp').controller('MainCtrl', MainCtrl);
             vm.selectedPokemonSkills = levelupSkills;
         }
 
+
+        /**
+        * @name getUniqueSkills
+        * @description get a pokemon unique skills for naming 
+        * @returns Array result
+        * @version 1.0.5
+        */
         function getUniqueSkills(arr) {
             var result = [];
             for (var i = 0; i < arr.length; i++) {
@@ -110,15 +159,32 @@ angular.module('angularPokedexApp').controller('MainCtrl', MainCtrl);
             return result;
         }
 
+        /**
+        * @name setOrderBy
+        * @description set the order of the filter
+        * @returns 
+        * @version 1.0.1
+        */
         function setOrderBy(value){
             vm.orderValue = value;
-            console.log(vm.orderValue);
         }
 
+        /**
+        * @name applyFilter
+        * @description sets the variable for search bar
+        * @returns 
+        * @version 1.0.0
+        */
         function applyFilter(){
             vm.searched = vm.searchTerm;
         }
 
+        /**
+        * @name clearFilter
+        * @description clears the filter values
+        * @returns
+        * @version 1.0.1
+        */
         function clearFilter(){
             vm.searched = {};
             vm.searchTerm = null;

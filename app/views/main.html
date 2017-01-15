@@ -92,30 +92,6 @@
                         <span class="stat-value"> {{ vm.detailedPokemon.base.Speed }}</span>
                     </div>
                 </div>
-                  <!-- <div class="stat-bar">
-                      <span class="stat-header">Attack : </span>
-                      <span class="stat-value"> {{ vm.detailedPokemon.base.Attack }}</span>
-                  </div>
-                  <div class="stat-bar">
-                      <span class="stat-header">Defense : </span>
-                      <span class="stat-value"> {{ vm.detailedPokemon.base.Defense }}</span>
-                  </div>
-                  <div class="stat-bar">
-                      <span class="stat-header">HP : </span>
-                      <span class="stat-value"> {{ vm.detailedPokemon.base.HP }}</span>
-                  </div>
-                  <div class="stat-bar">
-                      <span class="stat-header">Sp.Atk : </span>
-                      <span class="stat-value"> {{ vm.detailedPokemon.base.Sp.Atk }}</span>
-                  </div>
-                  <div class="stat-bar">
-                      <span class="stat-header">Sp.Def : </span>
-                      <span class="stat-value"> {{ vm.detailedPokemon.base.Sp.Def }}</span>
-                  </div>
-                  <div class="stat-bar">
-                      <span class="stat-header">Speed : </span>
-                      <span class="stat-value"> {{ vm.detailedPokemon.base.Speed }}</span>
-                  </div> -->
               </div>
             </div>
             <br>
@@ -126,7 +102,10 @@
                   </div>
                 </center>
             </div>
-            <div class="row">
+            <div class="row" ng-if="vm.showLogo">
+                <center><img class="animated fadeIn pokemon-logo" ng-src="images/pokemon.png"></center>
+            </div>
+            <div class="row" ng-if="vm.showSkills">
                 <div class="skill-div">
                   <div ng-repeat="skills in vm.selectedPokemonSkills" class="col-xs-4 skill-label"> {{ skills.ename }} </div>
                 </div>

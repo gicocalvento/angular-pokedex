@@ -301,3 +301,8 @@ body {
   font-weight:normal;
 }
 
+.pokemon-logo {
+  width: 450px;
+  margin-top: 5px;
+}
+
