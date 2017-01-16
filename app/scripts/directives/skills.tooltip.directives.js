@@ -3,8 +3,8 @@
 'use strict';
 
 /**
- * @name powerBar
- * @description power bar directive
+ * @name skillTooltip
+ * @description tooltip directive for skills hovering
  **/
  angular.module('angularPokedexApp')
         .directive("skillTooltip", function() {
