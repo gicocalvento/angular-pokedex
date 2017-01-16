@@ -83,15 +83,6 @@ body {
   }
 }
 
-/* navbar styles */
-@media (min-width: 768px) {
-
-  .navbar {
-      border-radius: 0px;
-  }
-
-}
-
 .navbar-default {
      background-color: transparent; 
      border: none;
@@ -275,6 +266,14 @@ body {
   color:black;
 }
 
+.table-bordered {
+  border: none;
+}
+
+.table {
+  font-size: 20px;
+}
+
 .well {
   width: 96%;
   background-color:#337ab7;
@@ -285,6 +284,14 @@ body {
 .skill-header {
   font-size: 18px;
   /*font-weight: bold;*/
+}
+
+.table tbody tr td {
+  border: none;
+}
+
+.skill-label {
+  cursor: pointer; cursor: hand;
 }
 
 .skill-div {
@@ -302,7 +309,71 @@ body {
 }
 
 .pokemon-logo {
-  width: 450px;
+  width: 330px;
   margin-top: 5px;
 }
 
+.stat-table {
+  margin-left:20px;
+}
+
+/* navbar styles */
+@media (max-width: 768px) {
+
+  .input-group {
+    margin-top: 20px;
+  }
+
+  .navbar {
+      border-radius: 0px;
+  }
+
+  .list-detail {
+    margin-top:12%;
+  }
+
+  .list-card {
+    min-width: 150px;
+  }
+
+  .detail-cover {
+    text-align:center;
+  }
+
+  .img-spr {
+    text-align: center;
+  }
+
+}
+
+@media (max-width : 480px) {
+
+  .input-group {
+    margin-top: 20px;
+  }
+
+  .list-div{
+    max-height: 200px;
+  }
+
+  .list-detail {
+    margin-top:230px;
+  }
+
+  .list-detail {
+    margin-top:20%;
+  }
+
+  .list-card {
+    min-width: 150px;
+  }
+
+  .detail-cover {
+    text-align:center;
+  }
+
+  .img-spr {
+    text-align: center;
+  }
+
+}

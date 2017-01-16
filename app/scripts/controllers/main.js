@@ -11,9 +11,9 @@
  */
 angular.module('angularPokedexApp').controller('MainCtrl', MainCtrl);
 
-    MainCtrl.$inject = ['Pokemon'];
+    MainCtrl.$inject = ['$scope','Pokemon'];
 
-    function MainCtrl(Pokemon) {
+    function MainCtrl($scope,Pokemon) {
         
         // vars and functions declarations
         var vm = this;
@@ -32,6 +32,8 @@ angular.module('angularPokedexApp').controller('MainCtrl', MainCtrl);
         vm.applyFilter = applyFilter;
         vm.showLogo = true;
         vm.showSkils = false;
+        vm.sortFilter = sortFilter;
+
         vm.detailedPokemon = {
             ename: '???????',
             enameType: '??',
@@ -113,7 +115,6 @@ angular.module('angularPokedexApp').controller('MainCtrl', MainCtrl);
             vm.showLogo = false;
             vm.detailedPokemon = {};
             vm.detailedPokemon = pokemon;
-            console.log(vm.detailedPokemon);
             vm.fetchPokemonSkills();
         }
 
@@ -188,6 +189,10 @@ angular.module('angularPokedexApp').controller('MainCtrl', MainCtrl);
         function clearFilter(){
             vm.searched = {};
             vm.searchTerm = null;
+        }
+
+        function sortFilter(){
+            vm.allPokemons.reverse();
         }
 
     }

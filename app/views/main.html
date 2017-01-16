@@ -4,7 +4,7 @@
     <div class="row">    
         <div class="col-xs-8 col-xs-offset-2">
         <form ng-submit="vm.applyFilter()">
-        <div class="input-group">
+        <div class="input-group poke-list">
                 <div class="input-group-btn search-panel">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                       <span id="search_concept">Filter by</span> <span class="caret"></span>
@@ -14,12 +14,12 @@
                       <li><a ng-click="vm.setOrderBy('id')">ID</a></li>
                       <li><a ng-click="vm.setOrderBy('id')">Type</a></li>
                       <li class="divider"></li>
-                      <li><a href="#all">ASC</a></li>
-                      <li><a href="#all">DESC</a></li>
+                      <li><a ng-click="vm.sortFilter()">ASC</a></li>
+                      <li><a ng-click="vm.sortFilter()">DESC</a></li>
                     </ul>
                 </div>
                 <input type="hidden" name="search_param" value="all" id="search_param">         
-                <input type="text" class="form-control" name="x" placeholder="Search term..." ng-model="vm.searchTerm">
+                <input type="text" class="form-control" name="x" placeholder="Search" ng-model="vm.searchTerm">
                 <span class="input-group-btn">
                     <button class="btn btn-default" ng-click="vm.applyFilter()" type="button"><span class="glyphicon glyphicon-search"></span></button>
                     <button class="btn btn-default" ng-click="vm.clearFilter()" type="button"><span class="glyphicon glyphicon-remove"></span></button>
@@ -64,33 +64,49 @@
                 <div class="row">
                     <div class="col-md-7">
                       <div class="detail-cover">
+                        <center>
                         <span style="font-size:18px;">ID :</span> <span class="badge" style="margin-left: 5px; margin-bottom:5px;">#{{vm.detailedPokemon.id}}</span><br>
-                        <span style="font-size:18px;">Type :</span> <span ng-repeat="type in vm.detailedPokemon.enameType" class="label label-sm" ng-class="type" style="margin-left:5px;">{{type}}</span>
+                        <span style="font-size:18px;">Type :</span> <span ng-repeat="type in vm.detailedPokemon.enameType track by $index" class="label label-sm" ng-class="type" style="margin-left:5px;">{{type}}</span>
+                        </center>
                       </div>
                     </div>
                     <div class="col-md-5">
-                      <!-- <center> -->
-                        <img class="img-spr animated fadeIn pull-right" ng-src="http://localhost:9001/pokemons/spr/{{ vm.detailedPokemon.id }}"> 
-                      <!-- </center> -->
+                      <center>
+                        <img class="img-spr animated fadeIn" ng-src="http://localhost:9001/pokemons/spr/{{ vm.detailedPokemon.id }}"> 
+                      </center>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-5">
-                        <span class="stat-header">Attack : </span>
-                        <span class="stat-header">Defense : </span>
-                        <span class="stat-header">HP : </span>
-                        <span class="stat-header">Sp.Atk : </span>
-                        <span class="stat-header">Sp.Def : </span>
-                        <span class="stat-header">Speed : </span>
-                    </div>
-                    <div class="col-md-2">
-                        <span class="stat-value"> {{ vm.detailedPokemon.base.Attack }}</span> 
-                        <span class="stat-value"> {{ vm.detailedPokemon.base.Defense }}</span>
-                        <span class="stat-value"> {{ vm.detailedPokemon.base.HP }}</span>
-                        <span class="stat-value"> {{ vm.detailedPokemon.base['Sp.Atk'] }}</span>
-                        <span class="stat-value"> {{ vm.detailedPokemon.base['Sp.Def'] }}</span>
-                        <span class="stat-value"> {{ vm.detailedPokemon.base.Speed }}</span>
-                    </div>
+                    <div class="col-md-4">
+                      <table class="table table-condensed stat-table">
+                        <tbody>
+                        <tr>                        
+                          <td>Attack :</td> 
+                          <td>{{ vm.detailedPokemon.base.Attack }}</td> 
+                        </tr> 
+                        <tr>                        
+                          <td>Defense:</td> 
+                          <td>{{ vm.detailedPokemon.base.Defense }}</td> 
+                        </tr> 
+                        <tr>                        
+                          <td>HP :</td> 
+                          <td>{{ vm.detailedPokemon.base.HP }}</td> 
+                        </tr> 
+                        <tr>                        
+                          <td>Sp.Atk : </td> 
+                          <td>{{ vm.detailedPokemon.base['Sp.Atk'] }}</td> 
+                        </tr> 
+                        <tr>                        
+                          <td>Sp.Def :</td> 
+                          <td>{{ vm.detailedPokemon.base['Sp.Def'] }}</td> 
+                        </tr> 
+                        <tr>                        
+                          <td>Speed :</td> 
+                          <td>{{ vm.detailedPokemon.base.Speed }}</td> 
+                        </tr> 
+                        </tbody>
+                       </table>
+                     </div>
                 </div>
               </div>
             </div>
@@ -107,7 +123,7 @@
             </div>
             <div class="row" ng-if="vm.showSkills">
                 <div class="skill-div">
-                  <div ng-repeat="skills in vm.selectedPokemonSkills" class="col-xs-4 skill-label"> {{ skills.ename }} </div>
+                  <div ng-repeat="skills in vm.selectedPokemonSkills" title="This should contain the details of the skills." data-toggle="tooltip" data-placement="left" class="col-xs-4 skill-label" skill-tooltip> {{ skills.ename }} </div>
                 </div>
             </div>
         </div>
